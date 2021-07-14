@@ -1,0 +1,94 @@
+<main class="w-full flex-grow p-4" >
+    <div class="flex flex-wrap">
+        <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
+            <p class="text-xl pb-6 flex items-center">
+                <i class="fas fa-list mr-3"></i> Update Profile
+            </p>
+            <div class="leading-loose">
+                <form class="p-5 -mt-3 bg-white rounded shadow-xl" [formGroup]='formup' (ngSubmit)='upProfile()' *ngIf="Users">
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="first_name">First Name</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded"
+                            name="first_name" [(ngModel)]="Users.first_name" formControlName="first_name">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="last_name">Last Name</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" name="last_name"
+                           [(ngModel)]="Users.last_name" formControlName="last_name">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="email">Email</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" name="email"
+                            [(ngModel)]="Users.email" formControlName="email">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="phone_number">Phone Number</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded"
+                            name="phone_number" [(ngModel)]="Users.phone_number" formControlName="phone_number">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="work_at">Word At</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" name="work_at"
+                            [(ngModel)]="Users.work_at" formControlName="work_at">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="job">Job</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" name="job"
+                            [(ngModel)]="Users.job" formControlName="job">
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600" for="avatar">Avatar</label>
+                        <input type="file" class="w-full px-5 h-8 py-2 text-base text-gray-700 bg-gray-200 rounded"
+                            name="avatar" [(ngModel)]="Users.avatar" formControlName="avatar">
+                    </div>
+                    <div class="">
+                        <label class=" block text-sm text-gray-600" for="message">Message</label>
+                        <textarea class="w-full px-5 h-8 text-base py-2 text-gray-700 bg-gray-200 rounded"
+                            name="message" [(ngModel)]="Users.message" formControlName="message"></textarea>
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-2" for="show_phone">Show Phone</label>
+                        <input class="w-full px-5 h-8 text_base py-2 text-gray-700 bg-gray-200 rounded"
+                            name="show_phone" [(ngModel)]="Users.show_phone" formControlName="show_phone">
+                    </div>
+                    <div class="mt-2">
+                        <button class="w-full text-white bg-blue-600 text-lg rounded" [disabled]='!this.formup.valid' type="submit">UPDATE
+                            PROFILE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2 mt-6 pl-0 lg:pl-2">
+            <p class="text-xl pb-6 flex items-center">
+                <i class="fas fa-list mr-3"></i> Update Password
+            </p>
+            <div class="leading-loose">
+                <form class="p-10 bg-white rounded shadow-xl" *ngIf="userinfo" [formGroup]='form' (ngSubmit)='change_password()'>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="old_password">Old Password</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded"
+                            name="old_password" [(ngModel)]="userinfo.password" formControlName="old_password">
+                            <app-password [keyPassword]="old_password" class="text-red-600"></app-password>
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="new_password">New Password</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" formControlName="new_password"
+                            name="new_password">
+                            <app-password [keyPassword]="new_password" class="text-red-600"></app-password>
+                    </div>
+                    <div class="">
+                        <label class="block text-sm text-gray-600 -mb-3" for="confirm_password">Confirm Password</label>
+                        <input class="w-full px-5 h-8 py-1 text-base text-gray-700 bg-gray-200 rounded" ngValidateEqual="new_password" pattern="{{new_password.value}}" formControlName="confirm_password"
+                            name="confirm_password">
+                            <div [hidden]="confirm_password.valid || confirm_password.pristine" class="alert alert-danger text-red-600">
+                                Comfirm password is not valid
+                              </div>
+                    </div>
+                    <div class="mt-2">
+                        <button class="w-full text-white bg-blue-600 text-lg rounded" [disabled]='!this.form.valid' type="submit">UPDATE PASSWORD</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

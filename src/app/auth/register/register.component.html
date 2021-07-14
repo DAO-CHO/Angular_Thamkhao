@@ -1,0 +1,74 @@
+<form [formGroup]='form' (ngSubmit)='register()'>
+    <div class="bg-indigo-100 rounded shadow-md px-6 pt-6 pb-8 mb-4 flex flex-col mx-44 my-6">
+        <div class="-mx-3 md:flex mb-2">
+            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+            </div>
+            <div class="md:w-1/2 px-3">
+                <img class="w-20 mx-auto" src="https://firebasestorage.googleapis.com/v0/b/quanlivanban-26d21.appspot.com/o/Hinhanh%2Ficon.png?alt=media&token=c73bacbb-0573-4c81-a6aa-c8dc8081e740" />
+                <p class="block uppercase tracking-wide text-gray-600 text-center text-2xl font-bold mb-10">Create
+                    Account</p>
+            </div>
+            <div class="md:w-1/2 px-3">
+            </div>
+        </div>
+        <div class="-mx-3 md:flex mb-9">
+            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="first_name">
+                    First Name
+                </label>
+                <input placeholder="Ngoc Dao" formControlName="first_name" minlength="4"
+                    class="appearance-none block w-full text-indigo-700 border-b-2 rounded outline-none focus:bg-gray-300 py-3 px-4">
+                    <app-name [lable]="'first_name'" [keyName]="first_name" class="text-red-600"></app-name>
+            </div>
+            <div class="md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="last_name">
+                    Last Name
+                </label>
+                <input placeholder="Le" formControlName="last_name" minlength="4"
+                    class="appearance-none block w-full text-indigo-700 border-b-2 rounded outline-none focus:bg-gray-300 py-3 px-4">
+                    <app-name [lable]="'last_name'" [keyName]="last_name" class="text-red-600"></app-name>
+            </div>
+        </div>
+        <div class="-mx-3 md:flex mb-9">
+            <div class="md:w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input placeholder="xxx@mail.com" formControlName="email" pattern="[a-zA-Z0-9]{3,100}(\@)[a-zA-Z0-9]{2,20}(\.)[a-zA-Z0-9]{2,20}"
+                name="email" class="appearance-none block w-full text-indigo-700 border-b-2 rounded outline-none focus:bg-gray-300 py-3 px-4">
+                <app-email [keyEmail]="email" class="text-red-600"></app-email>
+            </div>
+        </div>
+        <div class="-mx-3 md:flex mb-9">
+            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input placeholder="***********" type="password" formControlName="password" minlength="6"
+                    class="appearance-none block w-full text-indigo-700 border-b-2 rounded outline-none focus:bg-gray-300 py-3 px-4">
+                <app-password [keyPassword]="password" class="text-red-600"></app-password>
+            </div>
+            <div class="md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="confirm_password">
+                    Confirm Password
+                </label>
+                <input placeholder="***********" type="password" pattern="{{ password.value }}" formControlName="confirm_password" ngValidateEqual="password"
+                    class="appearance-none block w-full text-indigo-700 border-b-2 rounded outline-none focus:bg-gray-300 py-3 px-4">
+                    <div [hidden]="confirm_password.valid || confirm_password.pristine" class="alert alert-danger text-red-600">
+                        Comfirm password is not valid
+                      </div>
+            </div>
+        </div>
+        <div class="-mx-3 md:flex mb-2">
+            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+            </div>
+            <div class="md:w-1/2 px-3">
+                <button
+                    class="w-full bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded"
+                    type="submit" [disabled]='!this.form.valid'>Sign Up</button>
+            </div>
+            <div class="md:w-1/2 px-3">
+            </div>
+        </div>
+    </div>
+</form>

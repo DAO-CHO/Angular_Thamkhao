@@ -1,0 +1,15 @@
+<div *ngIf="status=='Active' ||status=='Suspended' || status=='Inactive'" class="alert alert-danger">
+
+    <div *ngIf="status== 'Active'">
+        <span aria-hidden="" class="absolute inset-0 opacity-50 bg-green-500 rounded-full"></span>
+        <span class="relative">{{status}}</span>
+    </div>
+    <div *ngIf="status =='Suspended'">
+        <span aria-hidden="" class="absolute inset-0 opacity-50 bg-red-600 rounded-full"></span>
+        <span class="relative">{{status}}</span>
+    </div>
+    <div *ngIf="status =='Inactive'">
+        <span aria-hidden="" class="absolute inset-0 opacity-50 bg-yellow-500 rounded-full"></span>
+        <span class="relative">{{status}}</span>
+    </div>
+</div>

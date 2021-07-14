@@ -1,0 +1,57 @@
+<div class="w-full mx-2 my-2">
+    <div class="bg-white overflow-auto">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr>
+                    <th
+                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        User
+                    </th>
+                    <th
+                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Role
+                    </th>
+                    <th
+                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Created at
+                    </th>
+                    <th
+                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hero of users">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-10 h-10">
+                                <img class="w-full h-full rounded-full"
+                                    src="{{hero.img}}&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2.2&amp;w=160&amp;h=160&amp;q=80"
+                                    alt="">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    {{hero.user}}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{hero.role}}</p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{hero.created_at}}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                            <app-status-color [status]="hero.status"></app-status-color>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="keyEmail.invalid && (keyEmail.dirty || keyEmail.touched)" class="alert alert-danger">
+
+          <div *ngIf="keyEmail.errors.required">
+                    Email is required.
+          </div>
+          <div *ngIf="keyEmail.errors.pattern">
+                    Email is not valid
+          </div>
+</div>

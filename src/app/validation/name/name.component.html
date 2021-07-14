@@ -1,0 +1,8 @@
+<div *ngIf="keyName.invalid && (keyName.dirty || keyName.touched)" class="alert alert-danger">
+          <div *ngIf="keyName.errors.required">
+                    {{lable}} is required.
+          </div>
+          <div *ngIf="keyName.errors.minlength">
+                    {{lable}} must be at least 4 characters long.
+          </div>
+</div>
